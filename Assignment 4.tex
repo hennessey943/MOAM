@@ -1,0 +1,276 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+
+
+
+%\usepackage[active]{srcltx} % SRC Specials for DVI Searching
+
+% Over-full v-boxes on even pages are due to the \v{c} in author's name
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+% THEOREM Environments ---------------------------------------------------
+
+ \newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ %\theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ %\theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \numberwithin{equation}{section}
+% MATH -------------------------------------------------------------------
+ \DeclareMathOperator{\RE}{Re}
+ \DeclareMathOperator{\IM}{Im}
+ \DeclareMathOperator{\ess}{ess}
+ \newcommand{\eps}{\varepsilon}
+ \newcommand{\To}{\longrightarrow}
+ \newcommand{\h}{\mathcal{H}}
+ \newcommand{\s}{\mathcal{S}}
+ \newcommand{\A}{\mathcal{A}}
+ \newcommand{\J}{\mathcal{J}}
+ \newcommand{\M}{\mathcal{M}}
+ \newcommand{\W}{\mathcal{W}}
+ \newcommand{\X}{\mathcal{X}}
+ \newcommand{\BOP}{\mathbf{B}}
+ \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+ \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+ \newcommand{\Real}{\mathbb{R}}
+ \newcommand{\Complex}{\mathbb{C}}
+ \newcommand{\Field}{\mathbb{F}}
+ \newcommand{\RPlus}{\Real^{+}}
+ \newcommand{\Polar}{\mathcal{P}_{\s}}
+ \newcommand{\Poly}{\mathcal{P}(E)}
+ \newcommand{\EssD}{\mathcal{D}}
+ \newcommand{\Lom}{\mathcal{L}}
+ \newcommand{\States}{\mathcal{T}}
+ \newcommand{\abs}[1]{\left\vert#1\right\vert}
+ \newcommand{\set}[1]{\left\{#1\right\}}
+ \newcommand{\seq}[1]{\left<#1\right>}
+ \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+ \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Nov 02 10:44:42 2001}
+%TCIDATA{LastRevised=Mon Dec 10 11:56:49 2001}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgment}[theorem]{Acknowledgment}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\renewcommand\refname{}
+\renewcommand\thefootnote{}
+\textheight=9in \topmargin=-0.6in \everymath{\displaystyle}
+\textwidth=6.5in \oddsidemargin=0.05in
+\renewcommand\arraystretch{1.5}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\includeonly{}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{multicol}
+\everymath{\displaystyle}
+\begin{document}
+
+{\large\bf MATH-6600, MOAM: Assignment No. 4, 11-6-15}
+
+
+
+\vspace{6 ex}
+
+{\bf Name: Michael Hennessey} \hfill
+
+\vspace{6 ex}
+
+\begin{enumerate}
+\item \begin{enumerate} \item Find the minimum value of the integral
+$$I=\int_0^1[x^2(y')^2+2y^2]dx,$$
+among continuously differentiable functions, where $y(0)=0$, $y(1)=2.$\\
+
+Solution:\\
+
+We begin by finding the Euler-Lagrange equation:
+$$x^2 y''+2xy'-2y=0.$$
+
+We then substitute $x^l$ to get
+$$l(l-1)x^l+2lx^l-2x^l=0$$
+Factoring out $x^l$ gives the characteristic polynomial
+$$l^2+l-2=0$$
+with solutions $l=1$ and $l=-2$. Thus we have the general solution
+$$y=c_1x+c_2x^{-2}.$$
+Applying the boundary conditions shows that at $x=0$, $c_2=0$ (otherwise we have an infinite discontinuity) and at $x=1$, $c_1=2$ thereby giving us the specific solution $y=2x$. We claim that this is the minimizing function. We then substitute this function into the integral to determine the minimum value:
+$$I=\int_0^1 4x^2+8x^2dx=\int_0^1 12x^2dx=4x^3|_0^1=4.$$
+
+\item Determine the stationary function for the dual functional
+$$I=-y(\pi)y'(\pi)+\frac{1}{2}\int_0^\pi[(y')^2-y^2+2y]dx$$
+
+Solution:\\
+
+We begin by finding the variation of $I$ and setting it equal to zero.
+$$\delta I=-y'(\pi)\delta y(\pi)-y(\pi)\delta y'(\pi)+\frac{1}{2}\int_0^1 [(-2y+2)\delta y+2y'\delta y']dx=0$$
+$$\implies -y'(\pi)\delta y(\pi)-y(\pi)\delta y'(\pi)+\frac{1}{2}\int_0^1 [2-2y]\delta y dx+\frac{1}{2}\int_0^\pi 2y'\delta y' dx=0$$
+We use integration by parts to rewrite the second integral in the above equation. This gives
+$$\delta I= -y'(\pi)\delta y(\pi)-y(\pi)\delta y'(\pi)+y'(\pi)\delta y(\pi)-y'(0)\delta y(0)+\int_0^\pi(1-y-y'')\delta y dx=0.$$
+
+This becomes
+$$\delta I=-y(\pi)\delta y'(\pi)-y'(0)\delta y(0)+\int_0^\pi(1-y-y'')\delta y dx=0.$$
+Solving the Euler-Lagrange equation $1-y-y''=0$ gives
+$$y=c_1\cos x+c_2\sin x+1.$$
+Applying the natural boundary conditions found in the variation of $I$ gives
+$$y(\pi)=0\implies c_1=-1\text{ and }y'(0)=0\implies c_2=0.$$
+Then the stationary function for the dual functional is
+$$\hat{y}=1-\cos x.$$
+\end{enumerate}
+
+\item \begin{enumerate} \item Note any conditions on the interval $(a,b)$ which will affect the existence of the extremal curve.
+    $$F(y(x))=\int \frac{\sqrt{1+(y')^2}}{y} dx$$
+
+    We begin by determining the general form of the extremal curve absent of boundary conditions. First, we find the Euler-Lagrange equation:
+    $$-\frac{\sqrt{1+(y')^2}}{y^2}-\frac{y''y\sqrt{1+(y')^2}-(y')^2\sqrt{1+(y')^2}-y''(y')^2y(1+(y')^2)^{-1/2}}{y^2(1+(y')^2)}=0$$
+    Simplifying the E-L equation results in a second order nonlinear ordinary differential equation:
+    $$y''y+(y')^2+1=0$$
+    We can get a separable equation by making the substitution: $v(y)=y'\implies v'(y)y'=y''=v'(y)v(y)$. This results in the solution for $v$:
+    $$v(y)=\pm\sqrt{\frac{A}{y^2}-1}=\frac{dy}{dx}$$
+    This equation is similarly separable with solution:
+    $$y(x)=\pm\sqrt{A-(x+c)^2}$$
+    Then the values of $A$ and $c$ along with the sign of the solution are dependant on the boundary values. To simplify this analysis, we assume symmetric boundary conditions:
+    $$y(a)=y(-a)=G, a\neq 0$$
+    Then
+    $$y(a)=\pm\sqrt{A-a^2-2ca-c^2}=G$$
+    $$y(-a)=\pm\sqrt{A-a^2+2ca-c^2}=G$$
+    Then
+    $$A-a^2-2ca-c^2=A-a^2+2ca-c^2\implies c=0$$
+    Thus the solution becomes
+    $$y(x)=\pm\sqrt{A-x^2}$$
+    Then we have both the positive and negative solution when $G=0$. We have only the positive solution if $G>0$ and only the negative solution when $G<0$. We have no solution when $a^2>A$.
+
+    \item Find the stationary curve in 3-space that joins the points $(0,1,2)$, $(1,1,0)$ and optimizes the integral
+    $$I(y,z)=\int_0^1(y'^2+z'^2+y'z')dx.$$
+    Why is the optimal value a minimum?\\
+
+    Solution:\\
+
+    we begin by finding the two Euler-Lagrange equations:
+    $$E-L(y)=2y''+z''=0\text{ and }E-L(z)=2z''+y''=0$$
+    These equations result in the two general solutions:
+    $$z=cx+d\text{ and }y=ax+b$$
+    The boundary conditions $(0,1,2)$ and $(1,1,0)$ give $b=1,a=0,d=2,c=-2$. Then the stationary curve in 3-space is
+    $$\hat{y}=1, \hat{z}=2-2x\implies F(x,y,z)=(x,1,2-2x)$$
+    This curve gives a minimal value for the integral because it is a line: the shortest distance between the two points given. The minimum value is:
+    $$I(\hat{y},\hat{z})=\int_0^1 4 dx=4$$
+    We can show that this value is a minimum rigorously by perturbing the solutions. Let $\tilde{y}=\hat{y}+h(x),\tilde{z}=\hat{z}+g(x)$ with $h(0)=h(1)=g(0)=g(1)=0$. Then
+    $$I(\tilde{y},\tilde{z})=\int_0^1 h'(x)^2+(-2+g'(x))^2+h'(x)(-2+g'(x))dx$$
+    Simplifying gives:
+    $$I(\tilde(y),\tilde(z))=4+\int_0^1 h'(x)^2dx+\int_0^1 g'(x)^2dx+\int_0^1 h'(x)g'(x)dx$$
+    The fourth term above will evaluate to zero and the two middle terms on the right hand side are strictly positive, therefore perturbations in the stationary curve will increase the value of the integral. Thus the stationary curve is the minimizing function and 4 is the minimum value of the integral.
+
+    \end{enumerate}
+
+\item \begin{enumerate} \item Minimization of potential energy for a simply supported beam of length $L$ with a uniformly distributed load $p$ requires that the functional
+$$V=\int_0^L\left[\frac{1}{2}EI(u'')^2-Pu\right]dx,$$
+be minimized, where $EI$ is the bending stiffness, which is a constant, and $u(x)$ is the static deflection of the beam. The boundary conditions for a simply supported beam are
+$$u(0)=0,u''(0)=0,u(L)=0,u''(L)=0.$$
+Obtain the deflection distribution $u(x).$\\
+
+Solution:\\
+
+We begin by determining the Euler-Lagrange equation for the integral:
+$$-P+EIu''''=0$$
+Then
+$$u''=\frac{P}{2EI}x^2+c_1x+c_2.$$
+And the solution is
+$$u=\frac{P}{24EI}x^4+\frac{c_1}{6}x^3+\frac{c_2}{2}x^2+c_3x+c_4$$
+Then applying the boundary conditions gives $c_4=c_2=0$, $c_1=\frac{-PL}{2EI}$ and $c_3=\frac{-PL^3}{12EI}$. Thus the deflection distribution $u(x)$ is
+$$u(x)=\frac{P}{12EI}(\frac{x^4}{2}-Lx^3-L^3x).$$
+
+\item The total kinetic and potential energy of a rotating elastic bar is given by the functional
+$$I[u]=\int_{t_1}^{t_2}\int_0^1\left[\left(\frac{\partial u}{\partial t}\right)^2+\Omega^2(r+u)^2-K^2\left(\frac{\partial u}{\partial r}\right)^2\right]drdt,$$
+where $u(r,t)$ is the radial displacement, $\Omega$ is the constant angular velocity, and $K$ is a constant. The radial location at the end of the bar is fixed, in which case $u(0,t)=0$. Obtain the Euler-Lagrange equation, that is, the equation of motion, along with the boundary conditions at $r=0$ and $r=1$.\\
+
+Solution:\\
+
+The variation of the integral is defined:
+$$\delta I=\oint_{\delta D}\left(\frac{\partial f}{\partial u_r},\frac{\partial f}{\partial u_r}\right)\cdot n\delta uds+\int\int_D\left(\frac{\partial f}{\partial u}-\frac{\partial}{\partial r}\frac{\partial f}{\partial u_r}-\frac{\partial}{\partial t}\frac{\partial f}{\partial u_t}\right)\delta drdt.$$
+Then applying this definition to the equation at hand and separating the line integral into the three nonzero integrals over the boundary gives
+$$\delta I=\int_{t_1}^{t_2}\int_0^1[2\Omega^2(r+u)+2K^2u_{rr}-2u_{tt}]\delta udrdt$$
+$$-2\int_0^1 u(r,t_1)\delta u dr-2K^2\int_{t_1}^{t_2}u_r(1,t)\delta udt+2\int_0^1 u_t(r,t_2)\delta u dr.$$
+Then the Euler-Lagrange equation is $2\Omega^2(r+u)+2K^2u_{rr}-2u_{tt}=0$ and the boundary conditions are $u(0,t)=0$, $u_r(1,t)=0$, $u_t(r,t_1)=0$ and $u_t(r,t_2)=0$.
+
+\end{enumerate}
+
+\item \begin{enumerate}\item Prove Snell's law using the integrand
+$$\int_{x_i}^{x_f}\frac{\sqrt{1+y'^2}}{v(x)}dx,$$
+where
+$$v(x)=\left\{\begin{array}{cc}v_1&x<0\\v_2& x>0\end{array}\right.$$
+Make use of the natural transition conditions accross the surface.\\
+
+Solution:\\
+
+We begin by rewriting the integral:
+$$\int_{x_i}^{x_f}\frac{\sqrt{1+y'^2}}{v(x)}dx=\int_{x_i}^{0}\frac{\sqrt{1+y'^2}}{v_1}dx+\int_{0}^{x_f}\frac{\sqrt{1+y'^2}}{v_2}dx.$$
+We then make the substitution $y'(x)=\tan\theta(x)$ to get
+$$\int_{x_i}^{x_f}\frac{\sqrt{1+y'^2}}{v(x)}dx=\int_{x_i}^{0^-}\frac{\sec\theta(x)}{v_1}dx+\int_{0^+}^{x_f}\frac{\sec\theta(x)}{v_2}dx.$$
+We have an Euler-Lagrange equation for each integral above:
+$$\frac{\partial f}{\partial \theta}=\frac{\sec\theta(x)\tan\theta(x)}{v_1}=0\text{ and }\frac{\partial f}{\partial \theta} =\frac{\sec\theta(x)\tan\theta(x)}{v_2}=0$$
+These equations both reduce to
+$$\frac{\sin\theta(x)}{v_1}=0\text{ and }\frac{\sin\theta(x)}{v_2}=0.$$
+Then we use the transition condition
+$$\lim_{x\to0^-}\frac{\partial f}{\partial \theta}=\lim_{x\to 0^+}\frac{\partial f}{\partial \theta}.$$
+This gives
+$$\lim_{x\to 0^-}\frac{\sin\theta(x)}{v_1}=\lim_{x\to 0^+}\frac{\sin\theta(x)}{v_2}$$
+Then we let $\theta(0^-)=\theta_1$ and $\theta(0^+)=\theta_2$, which gives Snell's law:
+$$\frac{\sin\theta_1}{v_1}=\frac{\sin\theta_2}{v_2}.$$
+
+\item Let
+$$J=\int_0^\infty y^2dx\text{ and }I=\int_0^\infty y'^2 dx.$$
+Use the calculus of variations to minimize $I$ given that
+$$y(0)=1, y\to0\text{ as }x\to \infty$$
+and $J=\frac{1}{2}$. \\
+
+Solution:\\
+
+We use the Lagrange multiplier method:
+$$\delta[I-\lambda J]=0\implies\delta[\int_0^\infty y'^2-\lambda y^2 dx]=0$$
+This gives the Euler-Lagrange equation:
+$$y''+\lambda y=0.$$
+It is easy to show that $\lambda=0$ and $\lambda=k^2$ are trivial solutions once the boundary conditions are applied. Thus $\lambda=-\beta^2$ gives the only non-trivial solution:
+$$y=c_1e^{\beta x}+c_2e^{-\beta x}.$$
+Applying the boundary conditions gives $c_1=0$ and $c_2=1$ which makes the solution $y=e^{-\beta x}$. We then use the value of $J$ to determine the correct value of $\beta$.
+$$\int_0^\infty e^{-2\beta x}dx=\frac{1}{2\beta}=\frac{1}{2}\implies \beta=1$$
+Therefore the minimizing solution is $\hat{y}=e^{-x}$, and the minimum value of the integral is $I(\hat{y})=\frac{1}{2}.$
+\end{enumerate}
+\end{enumerate}
+\end{document} 

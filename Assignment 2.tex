@@ -1,0 +1,261 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+
+
+
+%\usepackage[active]{srcltx} % SRC Specials for DVI Searching
+
+% Over-full v-boxes on even pages are due to the \v{c} in author's name
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+% THEOREM Environments ---------------------------------------------------
+
+ \newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ %\theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ %\theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \numberwithin{equation}{section}
+% MATH -------------------------------------------------------------------
+ \DeclareMathOperator{\RE}{Re}
+ \DeclareMathOperator{\IM}{Im}
+ \DeclareMathOperator{\ess}{ess}
+ \newcommand{\eps}{\varepsilon}
+ \newcommand{\To}{\longrightarrow}
+ \newcommand{\h}{\mathcal{H}}
+ \newcommand{\s}{\mathcal{S}}
+ \newcommand{\A}{\mathcal{A}}
+ \newcommand{\J}{\mathcal{J}}
+ \newcommand{\M}{\mathcal{M}}
+ \newcommand{\W}{\mathcal{W}}
+ \newcommand{\X}{\mathcal{X}}
+ \newcommand{\BOP}{\mathbf{B}}
+ \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+ \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+ \newcommand{\Real}{\mathbb{R}}
+ \newcommand{\Complex}{\mathbb{C}}
+ \newcommand{\Field}{\mathbb{F}}
+ \newcommand{\RPlus}{\Real^{+}}
+ \newcommand{\Polar}{\mathcal{P}_{\s}}
+ \newcommand{\Poly}{\mathcal{P}(E)}
+ \newcommand{\EssD}{\mathcal{D}}
+ \newcommand{\Lom}{\mathcal{L}}
+ \newcommand{\States}{\mathcal{T}}
+ \newcommand{\abs}[1]{\left\vert#1\right\vert}
+ \newcommand{\set}[1]{\left\{#1\right\}}
+ \newcommand{\seq}[1]{\left<#1\right>}
+ \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+ \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Nov 02 10:44:42 2001}
+%TCIDATA{LastRevised=Mon Dec 10 11:56:49 2001}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgment}[theorem]{Acknowledgment}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\renewcommand\refname{}
+\renewcommand\thefootnote{}
+\textheight=9in \topmargin=-0.6in \everymath{\displaystyle}
+\textwidth=6.5in \oddsidemargin=0.05in
+\renewcommand\arraystretch{1.5}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\includeonly{}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{multicol}
+\everymath{\displaystyle}
+\begin{document}
+
+{\large\bf MATH-6600, MOAM: Assignment No. 2, 9-25-15}
+
+
+
+\vspace{6 ex}
+
+{\bf Name: Michael Hennessey} \hfill
+
+\vspace{6 ex}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Prove Property (i)': If throughout the interval $(a,b),$ $Q(x)\geq0$, and $\alpha_0\alpha_1\leq 0$, and $\beta_0\beta_1\geq 0$, then all eigenvalues are real.\\
+            \begin{proof}
+            Suppose otherwise, $\lambda\in\mathbb{C},\lambda=\lambda_1+i\lambda_2$. Then the eigenfunction $y(x)\in\mathbb{C},y(x)=y_1(x)+iy_2(x)$. If we multiply the Sturm-Liouville equation by $\bar{y}(x)=y_1(x)-iy_2(x)$, we get
+            $$(P(x)y')'\bar{y}+[\lambda R(x)-Q(x)]y\bar{y}=0$$
+            We then integrate from $a$ to $b$ and obtain
+            $$\int_a^b P(x)y')'\bar{y}dx+\int_a^b [\lambda R(x)-Q(x)]y\bar{y}dx=0$$
+            We use integration by parts to evaluate the interval and get
+            $$P(x)y'\bar{y}|_a^b-\int_a^b P(x)|y'|^2dx+\int_a^b [\lambda R(x)-Q(x)]|y|^2dx=0$$
+            We will then prove that each term in the sum above is real. For the first term, we use the boundary conditions:
+            $$P(x)y'\bar{y}|_a^b=P(b)y'(b)\bar{y}(b)-P(a)y'(a)\bar{y}(a)=-\frac{\beta_0}{\beta_1}P(b)|y(b)|^2-\frac{\alpha_0}{\alpha_1}P(a)|y(a)|^2$$
+            As $P(x)$ is a real-valued function on the interval in question, we know that this first term must be real! For the second term, the fact that $P(x)$ is real-valued implies that $\int_a^b P(x)|y'|^2dx\in\mathbb{R}$. The third term, however requires some work to show that it is purely real. We begin by expanding $\lambda$ into its complex form
+            $$\int_a^b [\lambda R(x)-Q(x)]|y|^2dx=\int(\lambda_1+i\lambda_2 R(x)|y|^2dx-\int Q(x)|y|^2dx$$
+            Since $Q(x)$ is real valued on $(a,b)$, we know that the second integral term above is real-valued. Then,
+            $$\int(\lambda_1+i\lambda_2 R(x)|y|^2dx=\lambda\int R(x)|y|^2dx+i\lambda_2\int R(x)|y|^2dx$$
+            Notice that every term already shown to be real is less than or equal to zero (in the case of the $Q(x)$ integral), due to the fact that $P(x)>0,Q(x)\geq 0$. Since the sum of all terms must be zero, we know that the $R(x)$ integral must be greater than zero! Thus,
+            $$\lambda\int R(x)|y|^2dx>0\implies \int R(x)|y|^2dx\neq 0.$$
+            However, this also implies that
+            $$i\lambda_2\int R(x)|y|^2dx=0\iff \lambda_2=0.$$
+            We assert that this must be true, as there are no other complex terms in the sum to cancel out with this one.
+            \end{proof}
+        \item Consider the boundary-value problem
+            $$y''+\lambda sgn(x)y=0,\text{  }-1<x<\pi,$$
+            $$y(-1)=y(\pi)=0,$$
+            where $sgn(x)=\left\{\begin{array}{cc}1,&\text{ if }x>0\\-1,&\text{if }x<0\end{array}\right.$. The coefficient $R(x)=sgn(x)$ is discontinuous, but continuously differentiable solutions may be found by requiring $y(0^+)=y(0^-)$, and $y'(0^+)=y'(0^-)$. With this proviso, show that the boundary value problem has all real eigenvalues, but an infinite number of both positive and negative eigenvalues. Find an explicit formula for the corresponding eigenfunctions. Obtain a numerical approximation to the eigenvalue of smallest magnitude.\\
+
+            As this problem is Sturm-Liouville and it satisfies property (i)', we know that all eigenvalues $\lambda\in\mathbb{R}$. We then will examine three cases where $\lambda$ is zero, positive and negative. For $\lambda =0$, we get a trivial solution due to the boundary conditions. Now, we must split the equation into two different equations. For $0<x<\pi$ we have
+            $$y''+\lambda y=0$$
+            $$y(\pi)=0$$
+            For $-1<x<0$, we have
+            $$y''-\lambda y=0$$
+            $$y(-1)=0$$
+            We will also require $y(0^+)=y(0^-)$, and $y'(0^+)=y'(0^-)$ to relate the equations to one another.
+            \pagebreak
+            \begin{multicols}{2}
+            $y''+\lambda y=0,y(\pi)=0,0<x<\pi$\\
+                (a) $\lambda =-\beta^2$ gives the characteristic equation $r^2-\beta^2=0$. This results in the solution to the differential equation:
+                $$y(x)=c_1\sinh{\beta x}+c_2\cosh{\beta x}$$
+                We then differentiate and check the boundary conditions.
+                $$y'(x)=c_1\beta\cosh{\beta x}+c_2\beta\sinh{\beta x}$$
+                $$y(0^+)=c_2$$
+                $$y'(0^+)=c_1\beta$$
+                $$y(\pi)=c_1\sinh{\pi\beta}+c_2\cosh{\pi\beta}=0$$
+                $$\implies c_2=-c_1\tanh{\pi\beta}$$
+                .
+            \columnbreak
+
+            $y''-\lambda y=0,y(-1)=0,-1<x<0$\\
+                (a) $\lambda=-\beta^2$ gives the characteristic equation $r^2+\beta^2=0$. This results in the solution to the differential equation:
+                $$y(x)=c_3\sin{\beta x}+c_4\cos{\beta x}$$
+                We then differentiate and check the boundary conditions.
+                $$y'(x)=c_3\beta\cos{\beta x}-c_4\beta\sin{\beta x}$$
+                $$y(0^-)=c_4$$
+                $$y'(0^-)=\beta c_3$$
+                $$y(-1)=-c_3\sin{\beta}+c_4\cos{\beta}=0$$
+                $$\implies c_4=c_3\tan{\beta}$$
+            \end{multicols}
+            Since $y(0^+)=y(0^-)$ and $y'(0^+)=y'(0^-)$, we know that $c_1=c_3$ and $c_2=c_4$. Therefore, we get
+            $$c_1\tan{\beta}=-c_1\tanh{\pi\beta}$$
+            This is the transcendental equation for negative $\lambda_n$! It has infinitely many positive and negative solutions. This gives rise to the eigenfunction
+            $$y_n(x)=\left\{\begin{array}{cc}c_1\sinh{\beta_n x}+c_2\cosh{\beta_n x} & 0<x<\pi\\ c_1\sin{\beta_n x}+c_4\cos{\beta_n x} & -1<x<0\end{array}\right.$$
+            where $\lambda=-\beta^2$.
+            \begin{multicols}{2}
+                (b) $\lambda=k^2$ gives the characteristic equation $r^2+k^2=0.$ This results in the solution to the differential equation:
+                $$y(x)=b_1\cos{kx}+b_2\sin{kx}$$
+                We then differentiate and check the boundary conditions.
+                $$y'(x)=-b_1k\sin{kx}+b_2k\cos{k x}$$
+                $$y(\pi)=\pm b_1=0$$
+                $$\implies y(x)=b_2\sin{kx}$$
+                $$y(0^+)=0$$
+                $$y'(0^+)=b_2k$$
+                .
+                \columnbreak
+
+                (b) $\lambda=k^2$ gives the characteristic equation $r^2-k^2=0$. This results in the solution to the differential equation:
+                $$y(x)=b_3\cosh{kx}+b_4\sinh{kx}$$
+                We then differentiate and check the boundary conditions.
+                $$y'(x)=b_3k\sinh{kx}+b_4k\cosh{kx}$$
+                $$y(0^-)=b_3$$
+                $$y'(0^-)=b_4k$$
+                $$y(-1)=b_3\cosh{k}-b_4\sinh{k}=0$$
+            \end{multicols}
+            We use the fact that $y(0^+)=y(0^-)$ and $y'(0^+)=y'(0^-)$ again to simplify the problem. $$y(0^+)=y(0^-)\implies 0=b_3\implies y(x)=b_4\sinh{kx},-1<x<0$$
+            $$y'(0^+)=y'(0^-)\implies b_2k=b_4k\implies y(x)=b_2\sinh{kx},-1<x<0$$
+            We then reevaluate the second $y(x)$ at $x=-1$
+            $$y(-1)=-b_2\sinh{k}=0\implies k=i\pi n\implies \lambda=-\pi^2n^2 \text{ for }n\in\mathbb{Z}$$
+            But this is a contradiction! since we assumed $\lambda=k^2>0$. Therefore, this case is trivial.
+
+            We can then find a numerical approximation to the smallest eigenvalue that is found by the transcendental equation. We get $\beta \approx \pm 2.35619...$ using the find root function in mathematica \\
+           % :In[12]:= FindRoot[Tan[x] == -Tanh[\[Pi] x], {x, 2}]Out[12]= {x -> 2.35619}\\
+            Then, the smallest eigenvalue is $\lambda=-(2.35619)^2\approx -5.55163$
+        \end{enumerate}
+    \item The spatial temperature distribution in a heat conducting device is modeled by the boundary problem
+        $$y''+\lambda y=0,\text{   }0<x<1,$$
+        $$y(0)+y'(1)=0$$
+        $$y(1)+y'(0)=0$$
+        where $\lambda$ is the decay rate of a transient. Determine if this model is unstable, i.e. if there is an eigenvalue $\lambda$ such that $\mathrm{Re}(\lambda)<0$.\\
+        Since we are only trying to show that the real part of $\lambda$ is negative, we can assume $\lambda=-\beta^2,\beta\in\mathbb{R}$. Then we have the characteristic equation of the differential equation:
+        $$r^2-\beta^2=0$$
+        This implies that the solution to the differential equation is the function
+        $$y(x)=c_1\cosh{\beta x}+c_2\sinh{\beta x}$$
+        We then apply the boundary conditions to see if this is a valid solution, and if there exists a formula for $\beta$.
+        $$y(0)+y'(1)=c_1+c_1\beta\sinh{\beta}+c_2\beta\cosh{\beta x}=0$$
+        $$y(1)+y'(0)=c_1\cosh{\beta}+c_2\sinh{\beta}+\beta c_2=0$$
+        Solving this system of equations results in the solution $\beta=0,i\implies \lambda=0,1$. We know that $\lambda=1$ cannot be a solution, as it contradicts our original assumption. Therefore, the system is stable and $\mathrm{Re}(\lambda)\geq 0$.
+    \item Consider the Sturm-Liouville problem
+        $$y''-2y'+(1+\lambda)y=0,\text{  }0<x<1$$
+        $$y(0)=0,y(1)+y'(1)=0.$$
+        \begin{enumerate}
+            \item If $\lambda_n$ is the $n_{th}$ eigenvalue for the problem $(n=1,2,...)$, obtain a transcendental equation determining $\lambda_n$ and give a corresponding eigenfunction $y_n$.\\
+
+            \item Find $R(x)$, such that
+                $$\langle y_n,y_m\rangle=\int_0^1 R(x)y_n(x)y_m(x)dx=0,$$
+                where $m\neq n$.
+            \item Determine $c_n$, such that $e^x=\sum_{n=0}^\infty c_ny_n(x).$
+        \end{enumerate}
+        See attached
+
+    \item Consider the buckling of a column with constant stiffness $EI$. Suppose that the column is of length $L$ and is cantilevered at its base, that is $y'(0)=0$, where $y(x)$ is the deflected shape. For a uniform column, Euler beam theory says that
+        $$EIy''=P[y(L)-y(x)],\text{  }0<x<L,$$
+        $$y(0)=0,y'(0)=0$$
+        Differentiating to get rid of $y(L)$, obtain the eigenvalue problem
+        $$y'''+\lambda y'=0,\text{  }0<x<L,$$
+        $$y(0)=y'(0)=y''(L)=0,$$
+        where $\lambda=\frac{P}{EI}$.
+
+        Show that all of the eigenvalues are real and positive without solving completely for all eigenfunctions
+
+        Find the eigenvalues and corresponding eigenfunctions or "buckling modes." In particular, show that the critical (minimum) buckling load is
+        $$P_{cr}=\frac{\pi^2 EI}{4L^2}.$$
+        Sketch the critical buckling mode.
+        
+        See attached
+    \item The following singular problem arises in a spherical geometry:
+    $$\phi''(r)+\frac{2}{r}\phi'(r)+\lambda\phi(r)=0,\text{  }0< r\leq 1$$
+    with
+    $$\lim_{r\to0^+}\phi(r)\text{ finite, }\phi(1)=0.$$
+    Determine its eigenfunctions and eigenvalues.\\
+    
+    See attached.
+\end{enumerate}
+
+\end{document} 

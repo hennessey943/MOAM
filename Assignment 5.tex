@@ -1,0 +1,373 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+
+
+
+%\usepackage[active]{srcltx} % SRC Specials for DVI Searching
+
+% Over-full v-boxes on even pages are due to the \v{c} in author's name
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+% THEOREM Environments ---------------------------------------------------
+
+ \newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ %\theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ %\theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \numberwithin{equation}{section}
+% MATH -------------------------------------------------------------------
+ \DeclareMathOperator{\RE}{Re}
+ \DeclareMathOperator{\IM}{Im}
+ \DeclareMathOperator{\ess}{ess}
+ \newcommand{\eps}{\varepsilon}
+ \newcommand{\To}{\longrightarrow}
+ \newcommand{\h}{\mathcal{H}}
+ \newcommand{\s}{\mathcal{S}}
+ \newcommand{\A}{\mathcal{A}}
+ \newcommand{\J}{\mathcal{J}}
+ \newcommand{\M}{\mathcal{M}}
+ \newcommand{\W}{\mathcal{W}}
+ \newcommand{\X}{\mathcal{X}}
+ \newcommand{\BOP}{\mathbf{B}}
+ \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+ \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+ \newcommand{\Real}{\mathbb{R}}
+ \newcommand{\Complex}{\mathbb{C}}
+ \newcommand{\Field}{\mathbb{F}}
+ \newcommand{\RPlus}{\Real^{+}}
+ \newcommand{\Polar}{\mathcal{P}_{\s}}
+ \newcommand{\Poly}{\mathcal{P}(E)}
+ \newcommand{\EssD}{\mathcal{D}}
+ \newcommand{\Lom}{\mathcal{L}}
+ \newcommand{\States}{\mathcal{T}}
+ \newcommand{\abs}[1]{\left\vert#1\right\vert}
+ \newcommand{\set}[1]{\left\{#1\right\}}
+ \newcommand{\seq}[1]{\left<#1\right>}
+ \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+ \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Nov 02 10:44:42 2001}
+%TCIDATA{LastRevised=Mon Dec 10 11:56:49 2001}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgment}[theorem]{Acknowledgment}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\renewcommand\refname{}
+\renewcommand\thefootnote{}
+\textheight=9in \topmargin=-0.6in \everymath{\displaystyle}
+\textwidth=6.5in \oddsidemargin=0.05in
+\renewcommand\arraystretch{1.5}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\includeonly{}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{multicol}
+\everymath{\displaystyle}
+\begin{document}
+
+{\large\bf MATH-6600, MOAM: Assignment No. 5, 12-11-15}
+
+
+
+\vspace{6 ex}
+
+{\bf Name: Michael Hennessey} \hfill
+
+\vspace{6 ex}
+
+\begin{enumerate}
+\item \begin{enumerate}\item
+    Consider the singular BVP
+    $$-y''+\frac{y'}{x}=f(x),\quad 0<x<1$$
+    $$\lim_{x\to 0}\frac{y(x)}{x}\text{ finite,   }y(1)=0.$$
+    Use a Green's function to show that the solution may be written
+    $$y(x)=\int_{0^+}^1 \frac{f(\xi)}{\xi}G(x,\xi)d\xi$$
+    where
+    $$G(x,\xi)=\left\{\begin{array}{cc}\frac{1}{2}x^2(1-\xi^2),&x<\xi\\ \frac{1}{2}\xi^2(1-x^2),&x>\xi\end{array}\right.$$
+    Solution:\\
+
+    We begin by multiplying through by $\frac{1}{x}$:
+    $$-\frac{1}{x}y''+\frac{1}{x^2}y'=\frac{f(x)}{x}$$
+    We can then rewrite the equation in standard form:
+    $$(-\frac{1}{x}y')'=\frac{f(x)}{x}$$
+    Then we have
+    $$y=\int_{0^+}^1\frac{f(\xi)}{\xi}G(x,\xi)d\xi$$
+    To determine the Green's function we solve the homogeneous problem:
+    $$(-\frac{1}{x}y')'=0$$
+    Integrating twice results in
+    $$y=-\frac{c}{2}x^2+d$$
+    which is a linear combination of the two fundamental solutions $y=1,y=x^2$. To satisfy the boundary conditions, we let
+    $$u_1(x)=x^2\text{  which satisfies only the first boundary condition}$$
+    $$u_2(x)=1-x^2\text{  which satisfies only the second boundary condition}.$$
+    We then calculate the Wronskian:
+    $$W=\left|\begin{array}{cc}x^2&1-x^2\\2x&-2x\end{array}\right|=-2x$$
+    Then, since $p(x)=-\frac{1}{x}$ we have $pW=-2$. Now we have the Green's function:
+    $$G(x,\xi)=\left\{\begin{array}{cc}\frac{u_1(x)u_2(\xi)}{pW},&x<\xi\\ \frac{u_1(\xi)u_2(x)}{pW},&x>\xi\end{array}\right.=\left\{\begin{array}{cc}\frac{1}{2}x^2(1-\xi^2),&x<\xi\\ \frac{1}{2}\xi^2(1-x^2),&x>\xi\end{array}\right.$$
+
+    \item Determine the generalized Green's function for the singular problem
+    $$-(\frac{1}{x}u')'=f(x),\quad 0<x<1,$$
+    $$\lim_{x\to 0^+}\frac{u}{x}\text{ finite},\quad 2u(1)-u'(1)=0.$$
+
+    Solution:\\
+
+    We note that the solution to the homogeneous problem
+    $$Lu=-(\frac{1}{x}u')'=0$$
+    is the same as above, $u=\frac{c}{2}x^2+d$. Then the eigenfunction which satisfies both boundary conditions is
+    $$\varphi(x)=x^2.$$
+    Using property (iv) and taking $r(x)=\frac{1}{x}$, we get
+    $$LG^\dag(x,\xi)=\delta(x-\xi)+cr(x)\phi(x)$$
+    $$\implies -(x^{-1}G_x^\dag)'=\delta(x-\xi)+cx$$
+    Before proceeding we take
+    $$c=-\frac{\varphi(\xi)}{\int_0^1 r\varphi^2dx}=-\frac{\xi^2}{1/4}=-4\xi^2,$$
+    giving us
+    $$-(x^{-1}G_x^\dag)'=\delta(x-\xi)-4\xi^2 x$$.
+    We then integrate to get
+    $$-x^{-1}G_x^\dag=H(x-\xi)-2\xi^2x^2+c_1$$
+    Then multiplying by $-x$ gives
+    $$G_x^\dag=2\xi^2x^3-x(H(x-\xi)+c_1)$$
+    We integrate one last time to find
+    $$G^\dag(x,\xi)=\frac{1}{2}\xi^2 x^4-\frac{1}{2}c_1x^2+\frac{1}{2}(\xi^2-x^2)H(x-\xi)+c_2$$
+    We can then write this in the form
+    $$G^\dag(x,\xi)=\left\{\begin{array}{cc}\frac{1}{2}\xi^2x^4-\frac{1}{2}c_1x^2+c_2,&x<\xi\\
+                            \frac{1}{2}\xi^2x^4-\frac{1}{2}d_1x^2+\frac{1}{2}(\xi^2-x^2)+d_2,&x>\xi\end{array}\right.$$
+    Then to determine the constants, we use properties (i),(ii), and (iii) as found in Section 4.5 in Herrron and Foster.
+    \begin{itemize}
+    \item (i): Boundary conditions:
+    $$\frac{G^\dag(0^+,\xi)}{x}=\lim_{x\to 0^+}\frac{1}{2}\xi^2x^3+c_1x+\frac{c_2}{x}=0 \iff c_2=0.$$
+    $$2G^\dag(1,\xi)+G^\dag_x(1,\xi)=0\implies 2[\frac{1}{2}\xi^2-\frac{1}{2}d_1+\frac{1}{2}(\xi^2-1)+d_2]-(2\xi^2-d_1-1)=0$$
+    $$\implies d_2=0.$$
+    Then our Green's function is
+    $$G^\dag(x,\xi)=\left\{\begin{array}{cc}\frac{1}{2}\xi^2x^4-\frac{1}{2}c_1x^2,&x<\xi\\\frac{1}{2}\xi^2x^4-\frac{1}{2}d_1x^2+\frac{1}{2}(\xi^2-x^2),&x>\xi\end{array}\right.$$
+
+    \item (ii) Continuity:
+    $$G^\dag(\xi^-,\xi)=G^\dag(\xi^+,\xi)$$
+     This gives:
+    $$c_1=d_1$$ and we have
+    $$G^\dag(x,\xi)=\left\{\begin{array}{cc}\frac{1}{2}\xi^2x^4-\frac{1}{2}c_1x^2,&x<\xi\\\frac{1}{2}\xi^2x^4-\frac{1}{2}c_1x^2+\frac{1}{2}(\xi^2-x^2),&x>\xi\end{array}\right.$$
+
+    \item (iii) Jump Condition:
+    $$\frac{\partial G^\dag}{\partial x}|_{x=\xi^-}^{x=\xi^+}=-\xi$$
+    $$\frac{1}{p(\xi)}=-\xi$$.
+
+    \item (i') $\int_{0^+}^1 \phi(x)r(x)G^\dag(x,\xi)dx=0$
+    This becomes
+    $$\int_{0^+}^1 x G^\dag(x,\xi)dx=\int_{0^+}^\xi \frac{1}{2}\xi^2 x^5-\frac{1}{2}c_1 x^3dx+\int_\xi^1 \frac{1}{2}\xi^2 x^5-\frac{1}{2}c_1 x^3+\frac{1}{2}x\xi^2-\frac{1}{2}x^3dx$$
+    Working this expression will give the result:
+    $$c_1=\frac{8}{3}\xi^2-\xi^4-1.$$
+    \end{itemize}
+    We then have the final answer:
+    $$G^\dag(x,\xi)=\left\{\begin{array}{cc}\frac{1}{6}x^2(3x^2\xi^2+3\xi^4-8\xi^2+3),&x<\xi\\ \frac{1}{6}\xi^2(3x^2\xi^2+3x^4-8x^2+3), &x>\xi\end{array}\right..$$
+    \end{enumerate}
+
+    \item \begin{enumerate} \item Beginning with
+    $$G(t,\tau)=\left\{\begin{array}{cc}U(t)C_1, &t<\tau\\U(t)C_2,&t>\tau\end{array}\right.,$$
+    where $U$ is a fundamental matrix and $C_1$ and $C_2$ are matrices independent of $t$ and if $G$ satisfies:
+    $$AG(a,\tau)+BG(b,\tau)=0,$$
+    and
+    $$[G]_{t=\tau^-}^{t=\tau^+}=I,$$
+    derive
+    $$G(t,\tau)=\left\{\begin{array}{cc}-U(t)D^{-1}BU(b)U^{-1}(\tau),&t<\tau\\U(t)D^{-1}AU(a)U^{-1}(\tau),&t>\tau\end{array}\right..$$
+    Note that we define,
+    $$AU(a)+BU(b)\equiv D.$$
+    Solution:\\
+    From the second condition we have
+    $$U(\tau)C_2-U(\tau)C_1=I$$
+    Then, solving for the difference of the $C$ matrices gives
+    $$C_2-C_1=U^{-1}(\tau).$$
+    We can use this result and the second condition to solve for $C_1$ and $C_2$:
+    $$AU(a)C_1+BU(b)C_2=0\implies AU(a)C_1+BU(b)(C_1+U^{-1}(\tau))=0$$
+    $$\implies C_1=-D^{-1}BU(b)U^{-1}(\tau)$$
+    and again,
+    $$AU(a)(C_2-U^{-1}(\tau)+BU(b)C_2=0\implies C_2=D^{-1}AU(a)U^{-1}(\tau).$$
+    Thus our Green's function is in the form desired.
+
+    \item Consider the system
+    $$\frac{d\mathbf{u}}{dt}=\mathbf{Pu}+\mathbf{f},\quad 0<t<2\pi,$$
+    where
+    $$\mathbf{u}=\left(\begin{array}{c}u_1(t)\\u_2(t)\end{array}\right),\quad \mathbf{P}=\left(\begin{array}{cc}1&1\\-1&1\end{array}\right).$$
+    Determine a $(2\times 2)$ fundamental matrix $\mathbf{U}(t)$ for the system.\\
+    Given the boundary conditions
+    $$u_1(0)-u_1(2\pi)=0,\quad u_2(0)-u_2(2\pi)=0,$$
+    compute the Green's matrix for the differential equation.
+
+    Solution:\\
+
+    The fundamental solution will satisfy the homogeneous differential equation:
+    $$\frac{d\mathbf{u}}{dt}=\mathbf{Pu},\quad 0<t<2\pi.$$
+    Thus the solution is
+    $$U=e^{Pt}$$
+    To compute $U$ we first perform an eigenvalue decomposition of $Pt$. Fortunately, we already have performed this decomposition algebraically in Problem 5 of Assignment 1. Here, we simply let $\alpha=1$ and $\beta=1$. Then we know that the eigenvalue decomposition of $P$ is
+    $$P=S\Lambda S^{-1}=\frac{1}{2}\left[\begin{array}{cc}-i&i\\1&1\end{array}\right]\left[\begin{array}{cc}1+i&0\\0&1-i\end{array}\right]\left[\begin{array}{cc}i&1\\-i&1\end{array}\right].$$
+    Then, as computed before, the fundamental matrix $U$ can be written
+    $$U=e^{Pt}=Se^{\Lambda t}S^{-1}=\left[\begin{array}{cc}e^t\cos t&e^t \sin t\\-e^t \sin t&e^t \cos t\end{array}\right].$$
+    To then compute the Green's matrix we must define $A$,$B$, $D$, and $U^{-1}(\tau)$. We can easily define $A$ and $B$ through inspection of the boundary conditions. As $A$ and $B$ must satisfy the relationship
+    $$A\mathbf{u}(0)+B\mathbf{u}(2\pi)=0,$$
+    we can clearly see that
+    $$A=\left[\begin{array}{cc}1&0\\0&1\end{array}\right]=I\quad B=\left[\begin{array}{cc}-1&0\\0&-1\end{array}\right]=-I.$$
+    Then from the relationship used in the previous part of the question, we can calculate $D$:
+    $$D=AU(0)+BU(2\pi)=U(0)-U(2\pi)=I-e^{2\pi}I=(1-e^{2\pi})I$$
+    Then we have
+    $$D^{-1}=\frac{1}{1-e^{2\pi}}I.$$
+    Lastly, we can compute $U^{-1}(\tau)$
+    $$U^{-1}(\tau)=e^{-\tau}\left[\begin{array}{cc}\cos\tau&-\sin\tau\\ \sin\tau&\cos\tau\end{array}\right].$$
+    Then the Green's function becomes
+    $$G(t,\tau)=\left\{\begin{array}{cc}-e^t\left[\begin{array}{cc}\cos t&\sin t\\ -\sin t&\cos t\end{array}\right]\frac{1}{1-e^{2\pi}}I(-I)e^{2\pi} I e^{-\tau}\left[\begin{array}{cc}\cos\tau&-\sin\tau\\ \sin\tau&\cos\tau\end{array}\right], & t<\tau\\
+    e^t\left[\begin{array}{cc}\cos t&\sin t\\ -\sin t&\cos t\end{array}\right]\frac{1}{1-e^{2\pi}}I(I)(I)e^{-\tau}\left[\begin{array}{cc}\cos\tau&-\sin\tau\\ \sin\tau&\cos\tau\end{array}\right],&t>\tau\end{array}\right.,$$
+    $$G(t,\tau)=\left\{\begin{array}{cc}-\frac{e^{t+2\pi-\tau}}{1-e^{2\pi}}\left[\begin{array}{cc}\cos(t-\tau)&\sin(t-\tau)\\-\sin(t-\tau)&\cos(t-\tau)\end{array}\right],&t<\tau\\
+    \frac{e^{t-\tau}}{1-e^{2\pi}}\left[\begin{array}{cc}\cos(t-\tau)&\sin(t-\tau)\\-\sin(t-\tau)&\cos(t-\tau)\end{array}\right],&t>\tau\end{array}\right..$$
+
+    \end{enumerate}
+    \item \begin{enumerate}\item Solve the Fredholm integral equation
+    $$x-1=\int_{-1}^1(1+y+3xy)\phi(y)dy$$
+    using the component decomposition
+    $$A_1(x)=1\quad B_1(y)=1+y$$
+    $$A_2(x)=3x\quad B_2(y)=y.$$
+
+    Solution:\\
+
+    We begin by showing that $\psi(x)=x-1$ is a linear combination of $A_1$ and $A_2$:
+    $$x-1=\alpha_1A_1+\alpha_2 A_2=\alpha_1+3\alpha_2 x$$
+    $$\implies \alpha_1=-1,\quad \alpha_2=\frac{1}{3}.$$
+    Then we use the fact that
+    $$\alpha_k=\sum_{j=1}^k\beta_j(B_k,B_j)$$
+    to find the values of $\beta_1,\beta_2$, as these will help us define our solution $\phi$.
+    We then find the system of equations dictating the values of the $\beta.$
+    $$\alpha_1=-1=\beta_1(B_1,B_1)+\beta_2(B_1,B_2)=\beta_1\int_{-1}^1(1+y)^2dy+\beta_2\int_{-1}^1(1+y)ydy$$
+    Which gives
+    $$-1=\frac{8}{3}\beta_1+\frac{2}{3}\beta_2$$
+    Similarly for $\alpha_2$:
+    $$\alpha_2=\frac{1}{3}=\beta_1(B_2,B_1)+\beta_2(B_2,B_2)=\beta_1\int_{-1}^1(1+y)ydy+\beta_2\int_{-1}^1 y^2dy$$
+    which results in
+    $$1=2\beta_1+2\beta_2.$$
+    Solving this system of equations will give
+    $$\beta_1=-\frac{2}{3},\quad \beta_2=\frac{7}{6}.$$
+    Then we have the solution for $\phi$:
+    $$\phi(x)=\beta_1B_1+\beta_2B_2=-\frac{2}{3}(1+x)+\frac{7}{6} x=\frac{1}{2}x-\frac{2}{3}.$$
+
+    \item Solve the integral equation
+    $$u(t)=1-\lambda\int_0^1 K(t,s)u(s)ds$$
+    where
+    $$K(t,s)=\left\{\begin{array}{cc}0,&s< t\\1&s> t\end{array}\right..$$
+    Solution:\\
+
+    We begin by rewriting the equation using the kernel
+    $$u(t)=1-\lambda\int_t^1u(s)ds.$$
+    Differentiating will result in the differential equation
+    $$u'(t)=\lambda u(t).$$
+    This equation has solution:
+    $$u(t)=ke^{\lambda t}.$$
+    We find the boundary condition $u(1)=1$ from the original integral equation and solve for $k$
+    $$u(1)=ke^\lambda=1\implies k=e^{-\lambda}$$
+    Thus we have the solution to the integral equation
+    $$u(t)=e^{\lambda(t-1)}.$$
+
+    \end{enumerate}
+    \item Use the Fredhold alternative to find all of the values of $a$ and $b$ for which
+    $$\phi(x)=a\sin x+b\cos x+\frac{8}{\pi}\int_0^{\pi/2}K(x,y)\phi(y)dy$$
+    can be solved when
+    $$K(x,y)=\left\{\begin{array}{cc} \sin x\sin y,&x<\pi/4\\ \cos x\sin y,& x>\pi/4\end{array}\right..$$
+    Note that this is a separable kernel.\\
+
+    Solution:\\
+
+    It is trivial to prove that $\frac{8}{\pi}$ is the characteristic value for this integral equation. Therefore, we can use the Fredholm alternative on the given equation to determine conditions on $a$ and $b$ such that $f(x)=a\sin x+b\cos x$ is orthogonal to $\omega(x)$ - the solution to the homogeneous integral equation. Thus we solve
+    $$\omega(x)=\frac{8}{\pi}\int_0^{\pi/2}K(x,y)\omega(y)dy.$$
+    We first list the components of the separable kernel:
+    $$A=\left\{\begin{array}{cc}\sin x,&x<\pi/4\\ \cos x,&x>\pi/4\end{array}\right.,\quad B=\sin x.$$
+    Then we can use the result derived in class
+    $$\omega(x)=\alpha A(x)$$
+    where $\alpha$ is given by
+    $$\alpha=\lambda \alpha (A,B)$$
+    however, in this case $\alpha$ cannot be solved for, and is thus arbitrary (further evidence that we are working with an eigenfunction). Since $\alpha$ is arbitrary, for ease of calculation, we choose $\alpha=1$, thereby giving us $\omega(x)=A(x).$ We then set the inner product of $f$ and $\omega(x)$ to 0, which will give us a condition on $a$ and $b$.
+    $$(f,\omega)(x)=\int_0^{\pi/2}(a\sin x+b\cos x)A(x)dx=0$$
+    $$\implies \int_0^{\pi/4}a\sin^2 x+b\sin x\cos xdx+\int_{\pi/4}^{\pi/2}a\sin x\cos x+b\cos^2 xdx=0$$
+    $$\implies \frac{1}{8}((\pi-2)a+2b)+\frac{1}{8}(2a+(\pi-2)b)=0$$
+    which reduces to
+    $$b=-a.$$
+    Therefore, the integral equation
+    $$\phi(x)=a\sin x-a\cos x+\frac{8}{\pi}\int_0^{\pi/2}K(x,y)\phi(y)dy$$
+    has a solution for any value of $a$.
+
+    \item \begin{enumerate}\item
+    Use Schur's inequality, to find a bound on $\lambda_1$ without solving the problem, based on the kernel $K(x,y)=\abs{x-y}$, $-\frac{1}{2}\leq x,y\leq\frac{1}{2}.$\\
+
+    Solution:\\
+
+    Schur's inequality can be reduced to $\frac{1}{\lambda_1^2}\leq \norm{K}^2$. Thus we need only calculate the norm of $K$:
+    $$\norm{K}^2=\int_{-1/2}^{1/2}\int_{-1/2}^{1/2}\abs{x-y}^2dydx=\int_{-1/2}^{1/2}\int_{-1/2}^{1/2}x^2-2xy+y^2dydx$$
+    $$=\int_{-1/2}^{1/2}x^2+\frac{1}{12}dx=\frac{1}{6}$$
+    Therefore, we have
+    $$\frac{1}{\lambda_1^2}\leq \frac{1}{6}\implies \lambda_1\geq \sqrt{6}\text{  or  }\lambda_1\leq -\sqrt{6}.$$
+
+    \item Determine a full characteristic system for the symmetric kernel
+    $$K(x,y)=\abs{x-y}\quad-\frac{1}{2}\leq x,y\leq\frac{1}{2}.$$
+
+    We begin by rewriting the homogeneous integral equation
+    $$\phi(x)=\lambda\int_{-1/2}^{1/2}K(x,y)\phi(y)dy$$
+    as a differential eigenvalue problem on the interval $[-\frac{1}{2},\frac{1}{2}]$.
+    Differentiating once will give
+    $$\phi'(x)=\lambda[\int_{-1/2}^x\phi(y)dy+\int_{1/2}^x\phi(y)dy].$$
+    Then differentiating again gives the differential eigenvalue problem
+    $$\phi''(x)=2\lambda\phi(x).$$
+    This differential equation has general solution
+    $$\phi(x)=c_1e^{\sqrt{2\lambda}x}+c_2e^{-\sqrt{2\lambda}x}.$$
+    We can use the fact that the solution $\phi(x)$ and the kernel $K(x,y)$ must satisfy the same boundary conditions to determine the correct boundary conditions for the eigenvalue problem. The values of $K$ and $K_x$ on the boundary are
+    $$K(-\frac{1}{2},y)=y+\frac{1}{2},\quad K(\frac{1}{2},y)=\frac{1}{2}-y$$
+    $$K_x(-\frac{1}{2},y)=-1,\quad K_x(\frac{1}{2},y)=1.$$
+    Then since
+    $$K(-\frac{1}{2},y)+K(\frac{1}{2},y)=1\text{,  and  }K_x(-\frac{1}{2},y)+K_x(\frac{1}{2},y)=0,$$
+    it would make sense for the boundary conditions on $\phi(x)$ to be
+    $$\phi(-\frac{1}{2})+\phi(\frac{1}{2})=1,\text{ and }\phi'(-\frac{1}{2})+\phi'(\frac{1}{2})=0.$$
+    This results in the solution
+    $$\phi(x)=\frac{\cosh(\sqrt{2\lambda}x)}{2\cosh(\frac{\sqrt{2\lambda}}{2})}+c_2\sin((2k-1)\pi x).$$
+    However, since the eigenvalues are $\lambda=-\frac{(2k-1)^2\pi^2}{2}$, the first component of the solution is infinite. Thus we do not have an eigenfunction that satisfies both boundary conditions above. However, if we let the first boundary condition be
+    $$\phi(-\frac{1}{2})+\phi(\frac{1}{2})=0$$
+    we can let
+    $$\phi(x)=c_2\sin((2k-1)\pi x)$$
+    where $c_2$ is an arbitrary constant that can be chosen for normalization, be the eigenfunction, with eigenvalues
+    $$\lambda=-\frac{(2k-1)^2\pi^2}{2}$$
+    Interestingly, even though this function does not satisfy the proper boundary conditions as defined earlier, it does satisfy both the differential equation and the integral equation in question.
+    
+    \end{enumerate}
+    \end{enumerate}
+    \end{document} 

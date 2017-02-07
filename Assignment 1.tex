@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+
+
+
+%\usepackage[active]{srcltx} % SRC Specials for DVI Searching
+
+% Over-full v-boxes on even pages are due to the \v{c} in author's name
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+% THEOREM Environments ---------------------------------------------------
+
+ \newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ %\theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ %\theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \numberwithin{equation}{section}
+% MATH -------------------------------------------------------------------
+ \DeclareMathOperator{\RE}{Re}
+ \DeclareMathOperator{\IM}{Im}
+ \DeclareMathOperator{\ess}{ess}
+ \newcommand{\eps}{\varepsilon}
+ \newcommand{\To}{\longrightarrow}
+ \newcommand{\h}{\mathcal{H}}
+ \newcommand{\s}{\mathcal{S}}
+ \newcommand{\A}{\mathcal{A}}
+ \newcommand{\J}{\mathcal{J}}
+ \newcommand{\M}{\mathcal{M}}
+ \newcommand{\W}{\mathcal{W}}
+ \newcommand{\X}{\mathcal{X}}
+ \newcommand{\BOP}{\mathbf{B}}
+ \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+ \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+ \newcommand{\Real}{\mathbb{R}}
+ \newcommand{\Complex}{\mathbb{C}}
+ \newcommand{\Field}{\mathbb{F}}
+ \newcommand{\RPlus}{\Real^{+}}
+ \newcommand{\Polar}{\mathcal{P}_{\s}}
+ \newcommand{\Poly}{\mathcal{P}(E)}
+ \newcommand{\EssD}{\mathcal{D}}
+ \newcommand{\Lom}{\mathcal{L}}
+ \newcommand{\States}{\mathcal{T}}
+ \newcommand{\abs}[1]{\left\vert#1\right\vert}
+ \newcommand{\set}[1]{\left\{#1\right\}}
+ \newcommand{\seq}[1]{\left<#1\right>}
+ \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+ \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Nov 02 10:44:42 2001}
+%TCIDATA{LastRevised=Mon Dec 10 11:56:49 2001}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgment}[theorem]{Acknowledgment}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\renewcommand\refname{}
+\renewcommand\thefootnote{}
+\textheight=9in \topmargin=-0.6in \everymath{\displaystyle}
+\textwidth=6.5in \oddsidemargin=0.05in
+\renewcommand\arraystretch{1.5}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\includeonly{}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\everymath{\displaystyle}
+\begin{document}
+
+{\large\bf MATH-6600, MOAM: Assignment No. 1, 9-11-15}
+
+
+
+\vspace{6 ex}
+
+{\bf Name: Michael Hennessey} \hfill
+
+\vspace{6 ex}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Let $C\in\mathbb{R}^{n\times n}$. The $trace$ of $C$ denoted by $TrC$, is defined as the sum of its diagonal elements.
+        \begin{enumerate}
+            \item Show that $Tr(AB)=Tr(BA)$.\\
+                \begin{proof}
+                    First, we note that each entry in a matrix multiplication is defined with an inner product. If we denote the rows of $A$ as $\bar{a}^T_i$ and the columns of $B$ as $\bar{b}_i$. For each column $i$ and row $j$, we can define the $ij$-th entry of $AB$ as: $(AB)_{ij}=<\bar{a}_i^T,\bar{b}_j>$. Using the definition of the inner product we can expand the right hand side of this equation as a sum.
+                    $$(AB)_{ij}=<\bar{a}_i^T,\bar{b}_j>=\sum_{k=1}^n a_{ik}b_{kj}$$
+                    where $a_{ij}$ is the $ij$-th element of $A$ and $b_{ij}$ is the $ij$-th element of $B$. Following the same logic, we can see that:
+                    $$(BA)_{ij}=<\bar{b}_i^T,\bar{a}_j>=\sum_{k=1}^n b_{ik}a_{kj}$$
+                    We can then define the trace of $AB$ as a sum
+                    $$Tr(AB)=\sum_{i=1}^n (AB)_{ii}=\sum_{i=1}^n\sum_{k=1}^n a_{ik}b_{ki}$$
+                    And similarly,
+                    $$Tr(BA)=\sum_{i=1}^n (BA)_{ii}=\sum_{i=1}^n\sum_{k=1}^n b_{ik}a_{ki}$$
+                    Since the sums are bounded, we choose to rewrite $Tr(BA)$ as $\sum_{k=1}^n\sum_{i=1}^n b_{ik}a_{ki}$. As the matrix is square, we can interchange the subscripts (replace $i$ with $k$), then we get the sum $\sum_{i=1}^n\sum_{k=1}^n b_{ki}a_{ik}$. It is clear to see that we have equality:
+                    $$Tr(AB)=\sum_{k=1}^n\sum_{i=1}^n a_{ik}b_{ki}= \sum_{i=1}^n\sum_{k=1}^n b_{ki}a_{ik}=Tr(AB)$$
+                    since the element by element multiplication is commutative.
+                \end{proof}
+            \item    Verify the conclusions of part (i) when
+            $$A=\left[\begin{array}{cc}1&-2 \\
+                                    0&-1 \\
+                                     6&-3
+                        \end{array}\right]  B=\left[\begin{array}{ccc}3&4&2 \\ 2&3&-1\end{array}\right]$$
+                        Verification:
+            $$AB=\left[\begin{array}{ccc}-1&2&4\\-2&-3&1 \\ 12& 15&15\end{array}\right]  Tr(AB)=11$$
+            $$BA=\left[\begin{array}{cc}15 & -16 \\ -4&-4\end{array}\right]  Tr(AB)=11$$
+        \end{enumerate}
+        \item Consider $v_1=\left[\begin{array}{c} 2\\1\end{array}\right]$ and $v_2=\left[\begin{array}{c} 3\\1\end{array}\right]$. Prove that $v_1$ and $v_2$ form a basis for $\mathbb{R}^2$. Find the components of the vector $v=\left[\begin{array}{c} 4\\1\end{array}\right]$ with respect to this basis.\\
+            \begin{proof}
+            If the two vectors form a basis for $\mathbb{R}^2$, they must be linearly independent and span $\mathbb{R}^2$. First we check for linear independence. The two vectors are linearly independent if the determinant of the matrix $A=\left[\begin{array}{cc}2&3\\1&1\end{array}\right]$ (where $v_1$ and $v_2$ are the columns of $A$) is nonzero. $\det{A}=-1\neq 0$. Therefore, $v_1$ and $v_2$ are linearly independent.\\
+
+            To determine if the vectors span $\mathbb{R}^2$, we can find an explicit formula for an arbitrary vector $u=\left[\begin{array}{c}a\\b\end{array}\right]\in\mathbb{R}^2$ given by the linear combination of $v_1$ and $v_2$: $k_1v_2+k_2v_2=u$. This leads to the matrix equation
+            $$\left[\begin{array}{cc}2&3\\1&1\end{array}\right]\left[\begin{array}{c}k_1\\k_2\end{array}\right]=\left[\begin{array}{c}a\\b\end{array}\right]$$
+            Using the process of Gaussian elimination to solve this system, we find the row echelon form of the augmented matrix: $\begin{amatrix}{2}1&3/2&a/2\\0&1&a-2b\end{amatrix}$. This shows that\\ $k_1=3b-a$ and $k_2=a-2b$. Therefore, since there exists an explicit formula to express any vector in $\mathbb{R}^2$ as a linear combination of $v_1$ and $v_2$, they clearly span $\mathbb{R}^2$, and subsequently form a basis $B$ for $\mathbb{R}^2$. We then know that we can express any vector $u=\left[\begin{array}{c}a\\b\end{array}\right]\in\mathbb{R}^2$ in the new basis $B$ thusly $u_B=\left[\begin{array}{c}k_1\\k_2\end{array}\right]=\left[\begin{array}{c}3b-a\\a-2b\end{array}\right]$.
+            Therefore, to express the vector $v=\left[\begin{array}{c}4\\1\end{array}\right]$ with respect to the new basis we let $a=4,b=1$ and use the formula above. We then see that $v_B=\left[\begin{array}{c}-1\\2\end{array}\right]$
+            \end{proof}
+    \end{enumerate}
+    \item Determine bases for the four fundamental subspaces of the matrix
+    $$A=\left[\begin{array}{cccc} 1&1&1&0\\1&2&2&1\\2&5&5&3\end{array}\right]$$
+    We determine bases for the four fundamental subspaces of the matrix by examining the reduced row echelon form of $A$ and $A^T$.
+    $$rref{A}=\left[\begin{array}{cccc}1&0&0&-1\\0&1&1&1\\0&0&0&0\end{array}\right]$$
+    Since the first two columns only have a leading 1, we know that the column space or range of $A$, denoted $\mathcal{R}(A)$ is the span of the first two columns of $A$:
+    $$\mathcal{R}(A)=Sp\left\{\left[\begin{array}{c}1\\1\\2\end{array}\right],\left[\begin{array}{c}1\\2\\5\end{array}\right]\right\}$$
+    To find the basis for the nullspace of $A$, denoted $\mathcal{N}(A)$ we solve $Ax=0$. We can do this easily by looking at the reduced row echelon form of $A$ augmented with a column of zeroes:
+    $$\begin{amatrix}{4}1&0&0&-1&0\\0&1&1&1&0\\0&0&0&0&0\end{amatrix}$$
+    We see that we have two free variables. Let $x_4=s$ and $x_3=t$. Solving for $x_1$ and $x_2$ gives $x_1=s$, $x_2=-s-t$. Therefore,
+    $$\mathcal{N}(A)=Sp\left\{\left[\begin{array}{c}1\\-1\\0\\1\end{array}\right],\left[\begin{array}{c}0\\-1\\1\\0\end{array}\right]\right\}$$
+    We now look at $A^T$. $A^T=\left[\begin{array}{ccc}1&1&2\\1&2&5\\1&2&5\\0&1&3\end{array}\right]$. It's reduced row echelon form is $rref(A^T)=\left[\begin{array}{ccc}1&0&-1\\0&1&3\\0&0&0\\0&0&0\end{array}\right]$. As the first two columns of the matrix have a leading 1, we know that the range of $A^T$ (or the row space of $A$), denoted $\mathcal{R}(A^T)=\mathcal{N}(A)^\perp$ is the span of the first two columns of $A^T$:
+    $$\mathcal{N}(A)^\perp=Sp\left\{\left[\begin{array}{c}1\\1\\1\\0\end{array}\right],\left[\begin{array}{c}1\\2\\2\\1\end{array}\right]\right\}$$
+    To find the basis for the nullspace of $A^T$, denoted $\mathcal{R}(A)^\perp$ we must solve $A^T x=0$. We find the solution easily by augmenting the reduced row echelon form of $A^T$ with a column of zeroes.
+    $$\begin{amatrix}{3}1&0&-1&0\\0&1&3&0\\0&0&0&0\\0&0&0&0\end{amatrix}$$
+    We then see that we have only one free variable. Let $x_3=t$. Then, solving for $x_1$ and $x_2$ gives $x_1=t$ and $x_2=-3t$. Therefore, the basis for $\mathcal{R}(A)^\perp$ is
+    $$\mathcal{R}(A)^\perp=Sp\left\{\left[\begin{array}{c}1\\-3\\1\end{array}\right]\right\}.$$
+    \item \begin{enumerate}\item Use Theorem 4.4 to compute the pseudoinverse of $\left[\begin{array} {cc} 4&-2\\-2&1\end{array}\right]$.\\
+
+        Theorem 4.4 states that we can calculate the pseudoinverse of a matrix with the formula
+        $$A^+=\lim_{\delta\to 0}(A^TA+\delta^2I)^{-1}A^T$$
+        We see that $A=A^T$, $A^T=\left[\begin{array} {cc} 4&-2\\-2&1\end{array}\right]$.\\
+        Then, $A^TA=A^2=\left[\begin{array}{cc}20&-10\\-10&5\end{array}\right]$,\\
+        and $A^TA+\delta^2I=\left[\begin{array}{cc}20+\delta^2&-10\\-10&5+\delta^2\end{array}\right]$.\\ We then invert: $(A^TA+\delta^2I)^{-1}=\frac{1}{\delta^2(25+\delta^2)}\left[\begin{array}{cc}5+\delta^2&10\\10&20+\delta^2\end{array}\right]$\\
+        Next, $(A^TA+\delta^2I)^{-1}A^T=\frac{1}{\delta^2(25+\delta^2)}\left[\begin{array}{cc}4\delta^2&-2\delta^2\\-2\delta^2&\delta^2\end{array}\right]=\frac{1}{25+\delta^2}\left[\begin{array}{cc}4&-2\\-2&1\end{array}\right]$
+        Then we take the limit as $\delta\to 0$
+        $$\lim_{\delta\to 0}\frac{1}{25+\delta^2}\left[\begin{array}{cc}4&-2\\-2&1\end{array}\right]=\frac{1}{25}\left[\begin{array}{cc}4&-2\\-2&1\end{array}\right]=A^+$$\\
+
+        \item Suppose $A\in C^{n\times n}$ is skew-Hermitian. Prove that all eigenvalues of a skew-Hermitian matrix must be pure imaginary.\\
+            \begin{proof} Let $Ax=\lambda x$. Premultiply by $x^H$ to obtain $x^HAx=\lambda x^Hx$. Then take the Hermitian of the equation and we get
+            $$x^HA^Hx=\bar{\lambda}x^Hx$$
+            Using the fact that A is skew-Hermitian, we can rewrite the equation:
+            $$-x^HAx=\bar{\lambda}x^Hx$$
+            We then substitute $Ax=\lambda x$ into the left hand side of the equation:
+            $$-\lambda x^Hx=\bar{\lambda}x^Hx\implies -\lambda=\bar{\lambda}$$
+            Therefore, $\lambda$ must contain only imaginary terms.
+            \end{proof}
+
+        \end{enumerate}
+    \item \begin{enumerate}\item If $A\in\mathbb{R}^{n\times n}$ is positive definite, show that $A^{-1}$ must also be positive definite.\\
+        \begin{proof} Define $\lambda_i$ to be the $i$-th eigenvalue of $A$. Since $A$ is positive definite, by Theorem 10.17, we know that all $\lambda_i>0$. Then
+        $$Ax=\lambda x\implies x=\lambda A^{-1}x\implies \frac{1}{\lambda}x=A^{-1}x$$
+        Therefore, the eigenvalues of $A^{-1}$ are $\frac{1}{\lambda_{i}}$ and all $\frac{1}{\lambda_i}>0.$ Hence, $A^{-1}$ is positive definite.
+        \end{proof}
+
+        \item Is the matrix $B=\left[\begin{array}{cccc} 2&1&-1&0\\1&3&4&2\\-1&4&1&2\\0&2&2&1\end{array}\right]$ positive definite? Determine the sum and product of all the eigenvalues of $B$.\\
+
+            The matrix is not positive definite. As $B$ is symmetric and has two negative eigenvalues, it fails the criteria of Theorem 10.17. See MATLAB printout for the eigenvalues. As the sum of the eigenvalues is equal to the trace of the matrix, we have
+            $$\sum_{i=1}^n\lambda_i=Tr(B)=2+3+1+1=7$$
+            The product of the eigenvalues is equal to the determinant of the matrix. Then,
+            $$\Pi_{i=1}^n\lambda_i=\det(B)=2[3(1-4)-4(0)+2(8-2)]-[(1-4)-4(-1)+2(-2)]-[0-3(-1)+2(-2)]$$
+            $$=6+3+1=10$$
+        \end{enumerate}
+    \item Let $\alpha,\beta\in\mathbb{R}$ and
+    $$A=\left[\begin{array}{cc}\alpha &\beta\\-\beta&\alpha\end{array}\right].$$
+    Then show that
+    $$e^{tA}=\left[\begin{array}{cc} e^{\alpha t}\cos{\beta t}&e^{\alpha t}\sin{\beta t}\\-e^{\alpha t}\sin{\beta t}&e^{\alpha t}\cos{\beta t}\end{array}\right].$$
+    We first note that $e^{At}=Se^{\Lambda t}S^{-1}$. Where $\Lambda$ is the diagonal matrix whose entries are the eigenvalues of $A$, $S$ is the matrix whose columns are the eigenvectors of $A$, and $S^{-1}$ is the inverse of $S$. We must determine the eigenvalues of $A$. The characteristic polynomial of $A$ is $p(\lambda)=\lambda^2-2\alpha\lambda+\alpha^2+\beta^2$. The roots of the characteristic polynomial are $\lambda_{1,2}=\alpha+i\beta,\alpha-i\beta.$ Then, the eigenvectors of $A$ are $x_1=\left[\begin{array}{c}-i\\1\end{array}\right]$ and $x_2=\left[\begin{array}{c}i\\1\end{array}\right]$. We then have the matrices:
+    $$S=\left[\begin{array}{cc}-i&i\\1&1\end{array}\right],\Lambda=\left[\begin{array}{cc}\alpha+i\beta&0\\0&\alpha-i\beta\end{array}\right],S^{-1}=\frac{1}{2}\left[\begin{array}{cc}i&1\\-i&1\end{array}\right]$$
+    Then
+    $$e^{At}=\frac{1}{2}\left[\begin{array}{cc}-i&i\\1&1\end{array}\right]\left[\begin{array}{cc}e^{(\alpha+i\beta)t}&0\\0&e^{(\alpha-i\beta)t}\end{array}\right]\left[\begin{array}{cc}i&1\\-i&1\end{array}\right]=\frac{1}{2}\left[\begin{array}{cc}-ie^{(\alpha+i\beta)t}&ie^{(\alpha-i\beta)t}\\e^{(\alpha+i\beta)t}&e^{(\alpha-i\beta)t}\end{array}\right]\left[\begin{array}{cc}i&1\\-i&1\end{array}\right]$$
+
+    $$=\frac{1}{2}\left[\begin{array}{cc}e^{(\alpha+i\beta)t}+e^{(\alpha-i\beta)t}&i(e^{(\alpha-i\beta)t}-e^{(\alpha+i\beta)t})\\i(e^{(\alpha+i\beta)t}-e^{(\alpha-i\beta)t})&e^{(\alpha+i\beta)t}+e^{(\alpha-i\beta)t}\end{array}\right]$$
+    Using Euler's formula, we get
+    $$=\frac{1}{2}\left[\begin{array}{cc}e^{\alpha t}(\cos{\beta t}+i\sin{\beta t}+\cos{\beta t}-i\sin{\beta t})&ie^{\alpha t}(\cos{\beta t}-i\sin{\beta t}-\cos{\beta t}-i\sin{\beta t})\\ie^{\alpha t}(\cos{\beta t}+i\sin{\beta t}-\cos{\beta t}+i\sin{\beta t})&e^{\alpha t}(\cos{\beta t}+i\sin{\beta t}+\cos{\beta t}-i\sin{\beta t})\end{array}\right]$$
+    Finally,
+    $$e^{At}=\frac{1}{2}\left[\begin{array}{cc}2e^{\alpha t}\cos{\beta t}&2e^{\alpha t}\sin{\beta t}\\-2e^{\alpha t}\sin{\beta t}&2e^{\alpha t}\cos{\beta t}\end{array}\right]=\left[\begin{array}{cc}e^{\alpha t}\cos{\beta t}&e^{\alpha t}\sin{\beta t}\\-e^{\alpha t}\sin{\beta t}&e^{\alpha t}\cos{\beta t}\end{array}\right]$$
+
+\end{enumerate}
+
+
+
+\end{document}
